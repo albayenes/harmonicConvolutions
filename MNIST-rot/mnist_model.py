@@ -33,6 +33,7 @@ def deep_mnist(args, x, train_phase):
    # Convolutional Layers with pooling
    with tf.name_scope('block1') as scope:
       cv1 = hn_lite.conv2d(x, nf, fs, padding='SAME', n_rings=nr, name='1')
+
       cv1 = hn_lite.non_linearity(cv1, tf.nn.relu, name='1')
 
       cv2 = hn_lite.conv2d(cv1, nf, fs, padding='SAME', n_rings=nr, name='2')
